@@ -28,6 +28,17 @@ namespace PortfolioBLDAL.BusinessLayer
             return objPortfolio;
         }
 
+        /// <summary>
+        /// Inserts new portfolio.
+        /// </summary>
+        /// <param name="portfolio"></param>
+        /// <returns>portfolio Id</returns>
+        public static int PortfolioInsert(Portfolio portfolio)
+        {
+            PortfolioDAL objInsert = new PortfolioDAL();
+            return objInsert.PortfolioInsert(portfolio);
+        }
+
         private static Portfolio MapDataReaderPortfolio(SqlDataReader myReader)
         {
             Portfolio objPortfolio = new Portfolio();

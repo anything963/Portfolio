@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\PortfolioBL.cs" />
+    <Compile Include="BusinessLayer\ProjectBL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DataLayer\DBHelper.cs" />
     <Compile Include="DataLayer\PortfolioDAL.cs" />

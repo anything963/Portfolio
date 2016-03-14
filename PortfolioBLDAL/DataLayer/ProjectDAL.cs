@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using PortfolioBLDAL.Models;
+using System.Configuration;
 
 namespace PortfolioBLDAL.DataLayer
 {
@@ -34,6 +36,47 @@ namespace PortfolioBLDAL.DataLayer
             return data;
         }
 
+        public int ProjectInsert(Project project)
+        {
+            int projectId = 0;
+            try
+            {
+                var sqlCmd = new SqlCommand();
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "Project_Insert";
+                sqlCmd.Connection = this._DBConn;
+                sqlCmd.Parameters.AddWithValue("@portfolioId", project.portfolioId);
+                sqlCmd.Parameters.AddWithValue("@title", project.title);
+                sqlCmd.Parameters.AddWithValue("@description", (object)project.description ?? DBNull.Value);
+                sqlCmd.Parameters.AddWithValue("@startDate", (object)project.startDate ?? DBNull.Value);
+                sqlCmd.Parameters.AddWithValue("@endDate", (object)project.endDate ?? DBNull.Value);
+                sqlCmd.Parameters.AddWithValue("@dateAdded", (object)project.dateAdded?? DateTime.Now);
+                sqlCmd.Parameters.AddWithValue("@dateUpdated", (object)project.dateUpdated ?? DateTime.Now);
+                sqlCmd.Parameters.AddWithValue("@otherDetails", (object)project.otherDetails ?? DBNull.Value);
+                sqlCmd.Parameters.AddWithValue("@studentId", project.studentId);
+                sqlCmd.Parameters.AddWithValue("@sectionId", project.sectionId);
+                sqlCmd.Parameters.AddWithValue("@public_status", project.public_status ?? "VISIBLE");
+                sqlCmd.Parameters.AddWithValue("@active_status", project.active_status ?? "ACTIVE");
+                sqlCmd.Parameters.Add("@projectId", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                if (this._DBConn.State == ConnectionState.Closed)          
+                {
+                    this._DBConn.Open();
+                }
+                sqlCmd.ExecuteNonQuery();
+                projectId = Convert.ToInt32(sqlCmd.Parameters["@projectId"].Value);
+                this._DBConn.Close();
+            }
+            catch (Exception ex)
+            {
+
+                if (ConfigurationManager.AppSettings["RethrowErrors"] == "true")
+                {
+                    throw ex;
+                }
+            }
+            return projectId;
+        }
         #endregion
     }
 }

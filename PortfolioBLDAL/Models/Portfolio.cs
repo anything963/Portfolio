@@ -13,6 +13,6 @@ namespace PortfolioBLDAL.Models
         public string studentId { get; set; }
         public string public_status { get; set; }
 
-        public ICollection<Project> projects { get; set; }
+        public List<Project> projectList { get; set; }
     }
 }
