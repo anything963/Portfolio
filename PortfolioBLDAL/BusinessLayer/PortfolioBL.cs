@@ -11,7 +11,7 @@ using System.Configuration;
 
 namespace PortfolioBLDAL.BusinessLayer
 {
-    class PortfolioBL
+    public class PortfolioBL
     {
 
         public static Portfolio PortfolioSelect(int portfolioId, string studentId)

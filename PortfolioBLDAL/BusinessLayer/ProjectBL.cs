@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace PortfolioBLDAL.BusinessLayer
 {
-    class ProjectBL
+    public class ProjectBL
     {
         public static Project ProjectSelect(int projectId)
         {

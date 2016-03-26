@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace PortfolioBLDAL.DataLayer
 {
-    class ProjectDAL : DBHelper
+    public class ProjectDAL : DBHelper
     {
         private SqlConnection _DBConn;
 
