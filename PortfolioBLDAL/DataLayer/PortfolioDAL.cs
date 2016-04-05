@@ -33,6 +33,21 @@ namespace PortfolioBLDAL.DataLayer
             return data;
         }
 
+        public SqlDataReader PortfolioProjectsSelect(int portfolioId)
+        {
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "Portfolio_Projects";
+            sqlCmd.Connection = this._DBConn;
+            sqlCmd.Parameters.AddWithValue("@portfolioId", portfolioId);
+            if (this._DBConn.State == ConnectionState.Closed)
+            {
+                this._DBConn.Open();
+            }
+            SqlDataReader rd = sqlCmd.ExecuteReader(CommandBehavior.CloseConnection);
+            return rd;
+        }
+
         public int PortfolioInsert(Portfolio portfolio)
         {
             int portfolioId = 0;
@@ -66,6 +81,39 @@ namespace PortfolioBLDAL.DataLayer
             }
 
             return portfolioId;
+        }
+
+        public bool Portfolio_Update(Portfolio objPortfolio)
+        {
+            bool status = false;
+            try
+            {
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "Portfolio_Update";
+                sqlCmd.Connection = this._DBConn;
+                sqlCmd.Parameters.AddWithValue("@portfolioId", objPortfolio.portfolioId);
+                sqlCmd.Parameters.AddWithValue("@studentID", objPortfolio.studentId);
+                sqlCmd.Parameters.AddWithValue("@Public_status", (objPortfolio.public_status ?? "VISIBLE"));
+                if (this._DBConn.State == ConnectionState.Closed)
+                {
+                    this._DBConn.Open();
+                }
+                int numberOfRecordsAffected = sqlCmd.ExecuteNonQuery();
+                if (numberOfRecordsAffected > 0)
+                {
+                    status = true;
+                }
+                this._DBConn.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                if (ConfigurationManager.AppSettings["RethrowErrors"] == "true") { throw ex; }
+                status = false;
+            }
+            return status;
         }
 
         #endregion

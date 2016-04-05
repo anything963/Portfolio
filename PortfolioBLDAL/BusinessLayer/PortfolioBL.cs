@@ -28,6 +28,18 @@ namespace PortfolioBLDAL.BusinessLayer
             return objPortfolio;
         }
 
+        public static Portfolio PortfolioWithProjectsSelect(int portfolioId, string studentId)
+        {
+            Portfolio objPortfolio = PortfolioBL.PortfolioSelect(portfolioId, studentId);
+            objPortfolio.projectList = ProjectBL.PortfolioProjectsSelect(portfolioId);
+            foreach (Project item in objPortfolio.projectList)
+            {
+                //Add additional information for project here
+            }
+
+            return objPortfolio;
+        }
+
         /// <summary>
         /// Inserts new portfolio.
         /// </summary>

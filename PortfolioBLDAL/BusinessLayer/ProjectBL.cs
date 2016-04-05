@@ -3,11 +3,35 @@ using PortfolioBLDAL.Models;
 using System.Configuration;
 using PortfolioBLDAL.DataLayer;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace PortfolioBLDAL.BusinessLayer
 {
     public class ProjectBL
     {
+        public static List<Project> PortfolioProjectsSelect(int portfolioId)
+        {
+            List<Project> projects = new List<Project>();
+            try
+            {
+                PortfolioDAL portfolioDal = new PortfolioDAL();
+                SqlDataReader data = portfolioDal.PortfolioProjectsSelect(portfolioId);
+                while (data.Read())
+                {
+                    Project project = new Project();
+                    project = MapDataReaderProject(data);
+                    projects.Add(project);
+                }
+                data.Close();
+            }
+            catch (Exception ex)
+            {
+
+                if (ConfigurationManager.AppSettings["RethrowErrors"] == "true") { throw ex; }
+                return new List<Project>();
+            }
+            return projects;
+        }
         public static Project ProjectSelect(int projectId)
         {
             Project objProject = new Project();
@@ -38,6 +62,17 @@ namespace PortfolioBLDAL.BusinessLayer
         {
             ProjectDAL projectInsert = new ProjectDAL();
             return projectInsert.ProjectInsert(project);
+        }
+
+        /// <summary>
+        /// Update the project
+        /// </summary>
+        /// <param name="project"></param>
+        /// <returns>bool</returns>
+        public static bool ProjectUpdate(Project project)
+        {
+            ProjectDAL projectUpdate = new ProjectDAL();
+            return projectUpdate.ProjectUpdate(project);
         }
 
         private static Project MapDataReaderProject(SqlDataReader reader)
