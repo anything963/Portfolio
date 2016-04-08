@@ -25,7 +25,7 @@ namespace PortfolioBLDAL.DataLayer
         {
             SqlCommand selectCommand = new SqlCommand();
             selectCommand.CommandType = CommandType.StoredProcedure;
-            selectCommand.CommandText = "Project_Select";
+            selectCommand.CommandText = "Projects_Select";
             selectCommand.Connection = this._DBConn;
             selectCommand.Parameters.AddWithValue("@projectId", projectId);
             if (this._DBConn.State == ConnectionState.Closed)
@@ -76,6 +76,47 @@ namespace PortfolioBLDAL.DataLayer
                 }
             }
             return projectId;
+        }
+
+        public bool ProjectUpdate(Project project)
+        {
+            bool status = false;
+            try
+            {
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "Projects_Update";
+                sqlCmd.Connection = this._DBConn;
+                sqlCmd.Parameters.AddWithValue("@projectId", project.projectId);
+                sqlCmd.Parameters.AddWithValue("@portfolioId", project.portfolioId);
+                sqlCmd.Parameters.AddWithValue("@title", project.title);
+                sqlCmd.Parameters.AddWithValue("@description", (object)project.description ?? DBNull.Value);
+                sqlCmd.Parameters.AddWithValue("@startDate", (object)project.startDate ?? DBNull.Value);
+                sqlCmd.Parameters.AddWithValue("@endDate", (object)project.endDate ?? DBNull.Value);
+                sqlCmd.Parameters.AddWithValue("@dateAdded", (object)project.dateAdded?? DateTime.Now);
+                sqlCmd.Parameters.AddWithValue("@dateUpdated", (object)project.dateUpdated ?? DateTime.Now);
+                sqlCmd.Parameters.AddWithValue("@otherDetails", (object)project.otherDetails ?? DBNull.Value);
+                sqlCmd.Parameters.AddWithValue("@studentId", project.studentId);
+                sqlCmd.Parameters.AddWithValue("@sectionId", project.sectionId);
+                sqlCmd.Parameters.AddWithValue("@public_status", project.public_status ?? "VISIBLE");
+                sqlCmd.Parameters.AddWithValue("@active_status", project.active_status ?? "ACTIVE");
+                if (this._DBConn.State == ConnectionState.Closed)
+                {
+                    this._DBConn.Open();
+                }
+                int numberOfRecordsAffected = sqlCmd.ExecuteNonQuery();
+                if (numberOfRecordsAffected > 0)
+                {
+                    status = true;
+                }
+                this._DBConn.Close();
+            }
+            catch (Exception ex)
+            {
+                if (ConfigurationManager.AppSettings["RethrowErrors"] == "true") { throw ex; }
+                status = false;
+            }
+            return status;
         }
         #endregion
     }

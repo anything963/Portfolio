@@ -46,6 +46,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="DataLayer\DBHelper.cs" />
     <Compile Include="DataLayer\PortfolioDAL.cs" />
+    <Compile Include="DataLayer\Portfolio_ProjectsDAL.cs" />
     <Compile Include="DataLayer\ProjectDAL.cs" />
     <Compile Include="Models\Portfolio.cs" />
     <Compile Include="Models\project.cs" />
