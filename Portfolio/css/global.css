@@ -1,4 +1,6 @@
-﻿
+﻿/*div {
+    border: 1px solid;
+}*/
 
 .menu {
   font-size: 32px;
@@ -54,6 +56,14 @@
     position: relative;
 }
 
+#sidebarToggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: -10px 0 0 0;
+    border:none;
+}
+
 .logo {
   position: absolute;
   bottom: 95px;  
@@ -82,3 +92,45 @@
     -webkit-transition: margin-left ease .25s;
     transition: margin-left ease .25s;
   }
+
+.header {
+    position: relative;
+    padding: 10px 0 0 0;
+    width: 100%;
+    margin: 0 15px 0;
+    height: 170px;
+
+}
+
+.person-info-container {
+    position: relative;
+}
+.person-info {
+    background-color: #480059;
+    height: 150px;
+    width: 400px;
+    margin: 0 20px 0 0;
+    color: white;
+    padding: 0 10px 0;
+    float: right;
+}
+
+.picture-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 14px 0 14px 0;
+}
+    .person-picture {
+        background-color: white;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        margin: auto;
+    }
+
+    .person-details {
+        padding: 10px 0 0 0;
+    }
+
+.absolute-center {  width: 90%;  height: 90%;  overflow: auto;  margin: auto;  position: absolute;  top: 0; left: 0; bottom: 0; right: 0;}

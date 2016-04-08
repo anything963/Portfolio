@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/global.css" />
-
+    <link href="css/index.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -26,13 +26,39 @@
 
     <div id="wrapper">
         <div id="main">
-            <div>
-                <!--<button id="sidebarToggle">Toggle Menu</button>-->
-                <button id="sidebarToggle" type="button" class="btn btn-default" aria-label="Toggle Menu">
-                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                </button>
+            <div class="header">
+                <div class="row">
+                    <div class="col-lg-1 col-md-1 col-xs-1">
+                        <button id="sidebarToggle" type="button" class="btn btn-default" aria-label="Toggle Menu">
+                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="col-lg-5 col-md-3 col-sm-6"><h1 class="h1">Portfolio</h1></div>
+                    <div class="col-lg-6 col-md-8 col-sm-5">
+                        <div class="">
+                            <div class="person-info">
+                                <div class="row">
+                                    <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                        <div class="person-details">
+                                            <p>First Last Name</p>
+                                            <p>Tech ID#</p>
+                                            <p>College</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4">
+                                        <div class="picture-container">
+                                            <div class="person-picture absolute-center">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1>Portfolio</h1>
+            
             <p>Design goes here</p>
 
             <form>
@@ -40,9 +66,9 @@
             </form>
 
         </div>
-        <div id="footer">
+        <!--<div id="footer">
             &copy; 2016 Portfolio.
-        </div>
+        </div>-->
     </div>
 
     <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>

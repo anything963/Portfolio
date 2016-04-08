@@ -71,6 +71,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\global.css" />
+    <Content Include="css\index.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\logo-yellow.png" />
     <Content Include="index.html" />
