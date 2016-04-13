@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
+using System.Web.Http.Cors;
 
 namespace PortfolioWebApi
 {
@@ -15,6 +16,10 @@ namespace PortfolioWebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
