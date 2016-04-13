@@ -4,12 +4,28 @@
 <head>
     <title>Portfolio</title>
     <meta charset="utf-8" />
+
+    <!-- Style sheets -->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/global.css" />
     <link href="css/index.css" rel="stylesheet" />
+
+    <!--Library scripts-->
+    <script src="scripts/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/angular-resource.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+
+    <!--services-->
+    <script src="common/services/common.services.js"></script>
+
+    <!--application-->
+    <script src="app/app.js"></script>
+    <script src="app/poftfolio/projectListController.js"></script>
+    <script src="common/services/projectResource.js"></script>
 </head>
 
-<body>
+<body ng-app="portfolio">
 
     <div id="sidebar">
         <div class="sidebar-wrapper">
@@ -24,7 +40,7 @@
         </div>
     </div>
 
-    <div id="wrapper">
+    <div id="wrapper" ng-controller="projectListController as vm">
         <div id="main">
             <div class="header">
                 <div class="row">
@@ -35,21 +51,19 @@
                     </div>
                     <div class="col-lg-5 col-md-3 col-sm-6"><h1 class="h1">Portfolio</h1></div>
                     <div class="col-lg-6 col-md-8 col-sm-5">
-                        <div class="">
-                            <div class="person-info">
-                                <div class="row">
-                                    <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                        <div class="person-details">
-                                            <p>First Last Name</p>
-                                            <p>Tech ID#</p>
-                                            <p>College</p>
-                                        </div>
+                        <div class="person-info">
+                            <div class="row">
+                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                    <div class="person-details">
+                                        <p>First Last Name</p>
+                                        <p>Tech ID#</p>
+                                        <p>College</p>
                                     </div>
-                                    <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4">
-                                        <div class="picture-container">
-                                            <div class="person-picture absolute-center">
+                                </div>
+                                <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4">
+                                    <div class="picture-container">
+                                        <div class="person-picture absolute-center">
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -58,6 +72,8 @@
                     </div>
                 </div>
             </div>
+            <div></div>
+            <div ng-view></div>
             
             <p>Design goes here</p>
 
@@ -71,9 +87,12 @@
         </div>-->
     </div>
 
-    <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="scripts/global.js"></script>
-
+    <script>
+        //$(document).ready(function () {
+        //    console.log(vm.portfolio);
+        //});
+    </script>
 </body>
 
 </html>
