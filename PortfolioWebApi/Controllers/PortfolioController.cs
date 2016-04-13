@@ -17,9 +17,9 @@ namespace PortfolioWebApi.Controllers
             _repository = new PortfolioRepository();
         }
         // GET: api/Portfolio/5
-        public Portfolio Get(int id)
+        public Portfolio Get(string studentId, int portfolioId)
         {
-            return _repository.GetPortfolioWithProjects("1", id);
+            return _repository.GetPortfolioWithProjects(studentId, portfolioId);
         }
 
         // POST: api/Portfolio

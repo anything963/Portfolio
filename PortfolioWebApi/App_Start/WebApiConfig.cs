@@ -28,6 +28,15 @@ namespace PortfolioWebApi
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            //Portfolio Routes
+            config.Routes.MapHttpRoute(
+                name: "Portfolio",
+                routeTemplate: "api/{controller}/{studentId}/{portfolioId}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            
+
             //To make the default return type as Json
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
