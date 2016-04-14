@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PortfolioBLDAL.Models
 {
@@ -8,6 +9,7 @@ namespace PortfolioBLDAL.Models
         {
             portfolio = new Portfolio();
             dateUpdated = DateTime.Now;
+            projectType = new List<ProjectType>();
         }
         public int projectId { get; set; }
         public int portfolioId { get; set; }
@@ -23,6 +25,10 @@ namespace PortfolioBLDAL.Models
         public string public_status { get; set; }
         public string active_status { get; set; }
 
+        public List<ProjectType> projectType { get; set; }
+
         public Portfolio portfolio { get; set; }
+
+        
     }
 }

@@ -7,6 +7,6 @@
                     ["$resource", projectResource]);
 
     function projectResource($resource) {
-        return $resource("/v1/api/portfolio/1");
+        return $resource("/v1/api/portfolio/1/1");
     }
 })();

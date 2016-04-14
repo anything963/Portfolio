@@ -21,7 +21,7 @@
 
     <!--application-->
     <script src="app/app.js"></script>
-    <script src="app/poftfolio/projectListController.js"></script>
+    <script src="app/portfolio/projectListController.js"></script>
     <script src="common/services/projectResource.js"></script>
 </head>
 
@@ -40,30 +40,34 @@
         </div>
     </div>
 
-    <div id="wrapper" ng-controller="projectListController as vm">
-        <div id="main">
+    <div id="wrapper" >
+        <div class="main">
             <div class="header">
-                <div class="row">
-                    <div class="col-lg-1 col-md-1 col-xs-1">
-                        <button id="sidebarToggle" type="button" class="btn btn-default" aria-label="Toggle Menu">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="col-lg-5 col-md-3 col-sm-6"><h1 class="h1">Portfolio</h1></div>
-                    <div class="col-lg-6 col-md-8 col-sm-5">
-                        <div class="person-info">
-                            <div class="row">
-                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                    <div class="person-details">
-                                        <p>First Last Name</p>
-                                        <p>Tech ID#</p>
-                                        <p>College</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4">
-                                    <div class="picture-container">
-                                        <div class="person-picture absolute-center">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-1 col-xs-1">
+                            <button id="sidebarToggle" type="button" class="btn btn-default" aria-label="Toggle Menu">
+                                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="col-lg-5 col-md-3 col-sm-6"><h1 class="h1">Portfolio</h1></div>
+                        <div class="col-lg-6 col-md-8 col-sm-5">
+                            <div class="person-info">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                            <div class="person-details">
+                                                <p>First Last Name</p>
+                                                <p>Tech ID#</p>
+                                                <p>College</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4">
+                                            <div class="picture-container">
+                                                <div class="person-picture absolute-center">
 
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -72,15 +76,19 @@
                     </div>
                 </div>
             </div>
-            <div></div>
-            <div ng-view></div>
-            
-            <p>Design goes here</p>
+            <div class="content-wrapper">
+                <div ng-controller="projectListController as vm">
+                    <ul>
+                        <li ng-repeat="project in vm.portfolio.projectList">
 
-            <form>
-                
-            </form>
+                            <p>{{project.title}}</p>
+                        </li>
 
+                    </ul>
+
+                </div>
+            </div>
+   
         </div>
         <!--<div id="footer">
             &copy; 2016 Portfolio.

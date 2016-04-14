@@ -35,6 +35,7 @@ namespace PortfolioBLDAL.BusinessLayer
             foreach (Project item in objPortfolio.projectList)
             {
                 //Add additional information for project here
+                item.projectType = ProjectTypeBL.ProjectTypeSelect(item.projectId);
             }
 
             return objPortfolio;

@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\poftfolio\projectListController.js" />
+    <Content Include="app\portfolio\projectListController.js" />
     <Content Include="common\services\projectResource.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

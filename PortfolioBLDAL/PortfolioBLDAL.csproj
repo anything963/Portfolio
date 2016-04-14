@@ -43,13 +43,16 @@
   <ItemGroup>
     <Compile Include="BusinessLayer\PortfolioBL.cs" />
     <Compile Include="BusinessLayer\ProjectBL.cs" />
+    <Compile Include="BusinessLayer\ProjectTypeBL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DataLayer\DBHelper.cs" />
     <Compile Include="DataLayer\PortfolioDAL.cs" />
     <Compile Include="DataLayer\Portfolio_ProjectsDAL.cs" />
     <Compile Include="DataLayer\ProjectDAL.cs" />
+    <Compile Include="DataLayer\ProjectTypeDAL.cs" />
     <Compile Include="Models\Portfolio.cs" />
     <Compile Include="Models\project.cs" />
+    <Compile Include="Models\ProjectType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

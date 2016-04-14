@@ -2,6 +2,14 @@
     border: 1px solid;
 }*/
 
+html {
+height: 100%;
+}
+
+body {
+height: 100%;
+}
+
 .menu {
   font-size: 32px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -31,7 +39,7 @@
   color: #eee;
   position: fixed;
   height: 100%;
-  width: 250px;
+  width: 15%;
   overflow: hidden;
   left: 0;
   margin: 0;
@@ -43,7 +51,7 @@
 
 
   #sidebar.hide-sidebar {
-    left: -250px;
+    left: -15%;
     -moz-transition: left ease .25s;
     -o-transition: left ease .25s;
     -webkit-transition: left ease .25s;
@@ -78,11 +86,12 @@
 
 
 #wrapper {
-  margin: 0 0 0 250px;
+  margin: 0 0 0 15%;
   -moz-transition: margin-left ease .25s;
   -o-transition: margin-left ease .25s;
   -webkit-transition: margin-left ease .25s;
   transition: margin-left ease .25s;
+  height: 100%;
 }
 
   #wrapper.hide-sidebar {
@@ -97,8 +106,8 @@
     position: relative;
     padding: 10px 0 0 0;
     width: 100%;
-    margin: 0 15px 0;
-    height: 170px;
+    /*margin: 0 15px 0;*/
+    height: 25%;
 
 }
 
@@ -109,7 +118,6 @@
     background-color: #480059;
     height: 150px;
     width: 400px;
-    margin: 0 20px 0 0;
     color: white;
     padding: 0 10px 0;
     float: right;
@@ -133,4 +141,22 @@
         padding: 10px 0 0 0;
     }
 
-.absolute-center {  width: 90%;  height: 90%;  overflow: auto;  margin: auto;  position: absolute;  top: 0; left: 0; bottom: 0; right: 0;}
+.absolute-center {
+  width: 90%;
+  height: 90%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.content-wrapper {
+    width: 100%;
+    background-color: antiquewhite;
+    height: 75%;
+}
