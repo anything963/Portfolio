@@ -87,6 +87,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="scripts\angular-animate.js" />
+    <Content Include="scripts\angular-animate.min.js" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-resource.js" />
     <Content Include="scripts\angular-resource.min.js" />
@@ -98,6 +100,7 @@
     <Content Include="scripts\angular-resource.min.js.map" />
     <Content Include="scripts\angular-route.min.js.map" />
     <Content Include="common\services\common.services.js" />
+    <Content Include="scripts\angular-animate.min.js.map" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />

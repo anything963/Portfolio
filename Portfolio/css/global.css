@@ -159,4 +159,56 @@ height: 100%;
     width: 100%;
     background-color: antiquewhite;
     height: 75%;
+    overflow: hidden;
+    padding: 2%;
+}
+
+.project-list {
+    list-style-type: none;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+/*****Animate*****/
+/*
+  We're using CSS transitions for when
+  the enter and move events are triggered
+  for the element that has the .project-item
+  class
+*/
+.project-item{
+    position:relative;
+    float: left;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid;
+    height: 100%;
+    width: 19.6%;
+    margin: 0.2%;
+}
+
+    .project-item.ng-enter-stagger {
+        -moz-transition-delay: 0.1s;
+        -o-transition-delay: 0.1s;
+        -webkit-transition-delay: 0.1s;
+        transition-delay: 0.1s;
+    }
+.project-item.ng-enter, .project-item.ng-move {
+  -webkit-transition:0.7s ease-out all;
+  -moz-transition:0.7s ease-out all;
+  -o-transition:0.5s linear all;
+  transition:0.7s ease-out all;
+  left:100%;
+}
+
+/*
+ The ng-enter-active and ng-move-active
+ are where the transition destination properties
+ are set so that the animation knows what to
+ animate.
+*/
+.project-item.ng-enter.ng-enter-active,
+.project-item.ng-move.ng-move-active {
+  left: 0;
 }

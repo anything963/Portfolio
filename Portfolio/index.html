@@ -15,6 +15,7 @@
     <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
     <script src="scripts/angular-resource.min.js"></script>
     <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/angular-animate.min.js"></script>
 
     <!--services-->
     <script src="common/services/common.services.js"></script>
@@ -78,10 +79,10 @@
             </div>
             <div class="content-wrapper">
                 <div ng-controller="projectListController as vm">
-                    <ul>
-                        <li ng-repeat="project in vm.portfolio.projectList">
+                    <ul class="project-list">
+                        <li ng-repeat="project in vm.portfolio.projectList" class="project-item">
 
-                            <p>{{project.title}}</p>
+                            <p style="background-color: orange;">{{project.title}}</p>
                         </li>
 
                     </ul>

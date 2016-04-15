@@ -2,7 +2,8 @@
     "use strict";
 
     var app = angular.module("portfolio",
-                                ["common.services"]);
+                                ["ngAnimate",
+                                    "common.services"]);
 
 })();
 
