@@ -23,16 +23,33 @@ namespace PortfolioBLDAL.DataLayer
 
         public SqlDataReader ProjectSelect(int projectId)
         {
-            SqlCommand selectCommand = new SqlCommand();
-            selectCommand.CommandType = CommandType.StoredProcedure;
-            selectCommand.CommandText = "Projects_Select";
-            selectCommand.Connection = this._DBConn;
-            selectCommand.Parameters.AddWithValue("@projectId", projectId);
-            if (this._DBConn.State == ConnectionState.Closed)
+            SqlDataReader data;
+            try
             {
-                this._DBConn.Open();
+                SqlCommand selectCommand = new SqlCommand();
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.CommandText = "Projects_Select";
+                selectCommand.Connection = this._DBConn;
+                selectCommand.Parameters.AddWithValue("@projectId", projectId);
+                if (this._DBConn.State == ConnectionState.Closed)
+                {
+                    this._DBConn.Open();
+                }
+                data = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
             }
-            SqlDataReader data = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            catch (Exception ex)
+            {
+                if (ConfigurationManager.AppSettings["RethrowErrors"] == "true")
+                {
+                    throw ex;
+                }
+                data = null;
+            }
+            finally
+            {
+               // this._DBConn.Close();
+            }
+            
             return data;
         }
 
@@ -75,6 +92,10 @@ namespace PortfolioBLDAL.DataLayer
                     throw ex;
                 }
             }
+            finally
+            {
+                //this._DBConn.Close();
+            }
             return projectId;
         }
 
@@ -115,6 +136,10 @@ namespace PortfolioBLDAL.DataLayer
             {
                 if (ConfigurationManager.AppSettings["RethrowErrors"] == "true") { throw ex; }
                 status = false;
+            }
+            finally
+            {
+                //this._DBConn.Close();
             }
             return status;
         }

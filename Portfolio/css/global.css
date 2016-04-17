@@ -158,7 +158,7 @@ height: 100%;
 .content-wrapper {
     width: 100%;
     background-color: antiquewhite;
-    height: 75%;
+    height: 100%;
     overflow: hidden;
     padding: 2%;
 }
@@ -183,7 +183,7 @@ height: 100%;
     display: inline-block;
     padding: 5px;
     border: 1px solid;
-    height: 100%;
+    height: 98%;
     width: 19.6%;
     margin: 0.2%;
 }
@@ -212,3 +212,14 @@ height: 100%;
 .project-item.ng-move.ng-move-active {
   left: 0;
 }
+
+/************/
+
+
+.view-inject {
+    height: 75%;
+}
+
+/*.ng-scope {
+    height:100%;
+}*/

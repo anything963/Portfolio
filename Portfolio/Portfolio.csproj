@@ -67,7 +67,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\portfolio\projectListController.js" />
+    <Content Include="app\home.html" />
+    <Content Include="app\project\newProjectController.js" />
+    <Content Include="app\project\newProjectView.html" />
+    <Content Include="app\project\projectDetailController.js" />
+    <Content Include="app\project\projectDetailView.html" />
+    <Content Include="app\project\projectEditController.js" />
+    <Content Include="app\project\projectEditView.html" />
+    <Content Include="app\project\projectListView.html" />
+    <Content Include="app\project\projectListController.js" />
     <Content Include="common\services\projectResource.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -92,13 +100,12 @@
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-resource.js" />
     <Content Include="scripts\angular-resource.min.js" />
-    <Content Include="scripts\angular-route.js" />
-    <Content Include="scripts\angular-route.min.js" />
+    <Content Include="scripts\angular-ui-router.js" />
+    <Content Include="scripts\angular-ui-router.min.js" />
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\angular.min.js.map" />
     <Content Include="scripts\angular-resource.min.js.map" />
-    <Content Include="scripts\angular-route.min.js.map" />
     <Content Include="common\services\common.services.js" />
     <Content Include="scripts\angular-animate.min.js.map" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
@@ -121,9 +128,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\project\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

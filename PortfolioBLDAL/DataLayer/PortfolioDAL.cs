@@ -19,32 +19,65 @@ namespace PortfolioBLDAL.DataLayer
 
         public SqlDataReader PortfolioSelect(int portfolioId, string studentId)
         {
-            SqlCommand selectCommand = new SqlCommand();
-            selectCommand.CommandType = CommandType.StoredProcedure;
-            selectCommand.CommandText = "Portfolio_Select";
-            selectCommand.Connection = this._DBConn;
-            selectCommand.Parameters.AddWithValue("@portfolioId", portfolioId);
-            selectCommand.Parameters.AddWithValue("@StudentID", studentId);
-            if (this._DBConn.State == ConnectionState.Closed)
+            SqlDataReader data;
+            try
             {
-                this._DBConn.Open();
+                SqlCommand selectCommand = new SqlCommand();
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.CommandText = "Portfolio_Select";
+                selectCommand.Connection = this._DBConn;
+                selectCommand.Parameters.AddWithValue("@portfolioId", portfolioId);
+                selectCommand.Parameters.AddWithValue("@StudentID", studentId);
+                if (this._DBConn.State == ConnectionState.Closed)
+                {
+                    this._DBConn.Open();
+                }
+                data = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+               
             }
-            SqlDataReader data = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            catch (Exception ex)
+            {
+                if (ConfigurationManager.AppSettings["RethrowErrors"] == "true")
+                {
+                    throw ex;
+                }
+                data = null;
+            }
+            finally
+            {
+                //this._DBConn.Close();
+            }
             return data;
         }
 
         public SqlDataReader PortfolioProjectsSelect(int portfolioId)
         {
-            SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.CommandText = "Portfolio_Projects";
-            sqlCmd.Connection = this._DBConn;
-            sqlCmd.Parameters.AddWithValue("@portfolioId", portfolioId);
-            if (this._DBConn.State == ConnectionState.Closed)
+            SqlDataReader rd;
+            try
             {
-                this._DBConn.Open();
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "Portfolio_Projects";
+                sqlCmd.Connection = this._DBConn;
+                sqlCmd.Parameters.AddWithValue("@portfolioId", portfolioId);
+                if (this._DBConn.State == ConnectionState.Closed)
+                {
+                    this._DBConn.Open();
+                }
+                rd = sqlCmd.ExecuteReader(CommandBehavior.CloseConnection);
             }
-            SqlDataReader rd = sqlCmd.ExecuteReader(CommandBehavior.CloseConnection);
+            catch (Exception ex)
+            {
+                if (ConfigurationManager.AppSettings["RethrowErrors"] == "true")
+                {
+                    throw ex;
+                }
+                rd = null;
+            }
+            finally
+            {
+                //this._DBConn.Close();
+            }
             return rd;
         }
 
@@ -79,6 +112,10 @@ namespace PortfolioBLDAL.DataLayer
                 }
                 
             }
+            finally
+            {
+                //this._DBConn.Close();
+            }
 
             return portfolioId;
         }
@@ -112,6 +149,10 @@ namespace PortfolioBLDAL.DataLayer
 
                 if (ConfigurationManager.AppSettings["RethrowErrors"] == "true") { throw ex; }
                 status = false;
+            }
+            finally
+            {
+                //this._DBConn.Close();
             }
             return status;
         }
