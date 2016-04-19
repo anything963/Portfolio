@@ -27,20 +27,27 @@ namespace PortfolioWebApi
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
 
             //Portfolio Routes
             config.Routes.MapHttpRoute(
                 name: "Portfolio",
-                routeTemplate: "api/{controller}/{studentId}/{portfolioId}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/portfolio/{studentId}/{portfolioId}",
+                defaults: new { controller = "portfolio", id = RouteParameter.Optional }
             );
 
-            
+            //Project Routes
+            config.Routes.MapHttpRoute(
+                name: "Project",
+                routeTemplate: "api/userportfolio/{portfolioId}/project/{projectId}/",
+                defaults: new { controller = "projects", projectId = RouteParameter.Optional }
+            );
+
+
 
             //To make the default return type as Json
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));

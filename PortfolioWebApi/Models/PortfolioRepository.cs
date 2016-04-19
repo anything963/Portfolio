@@ -26,6 +26,11 @@ namespace PortfolioWebApi.Models
             return ProjectBL.ProjectSelect(projectId);
         }
 
+        public IEnumerable<Project> GetProjects(int portfolioId)
+        {
+            return ProjectBL.PortfolioProjectsSelect(portfolioId);
+        }
+
         public bool EditProject(Project project)
         {
             return ProjectBL.ProjectUpdate(project);
@@ -40,5 +45,7 @@ namespace PortfolioWebApi.Models
         {
             return ProjectBL.ProjectInsert(project);
         }
+
+        
     }
 }

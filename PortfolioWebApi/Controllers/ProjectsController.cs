@@ -10,19 +10,32 @@ using PortfolioBLDAL.Models;
 
 namespace PortfolioWebApi.Controllers
 {
-    public class ProjectsController : ApiController
+    public class ProjectsController : BaseApiController
     {
-        private PortfolioRepository _repository;
+        public ProjectsController(IPortfolioRepository repository) : base(repository)
+        {
 
-        public ProjectsController()
-        {
-            _repository = new PortfolioRepository();
         }
-        
-        // GET: api/Projects/5
-        public Project Get(int id)
+
+        // GET: api/portfolio/{portfolioId}/project
+        public IEnumerable<ProjectModel> Get(int portfolioId)
         {
-            return _repository.GetProject(id);
+            var results = TheRepository.GetProjects(portfolioId)
+                                       .OrderBy(f => f.title)
+                                       .Take(5)
+                                       .Select(p => TheModelFactory.Create(p));
+                                       //{
+                                       //    projectId = p.projectId,
+                                       //    title = p.title
+                                       //});
+
+            return results;
+        }
+
+        // GET: api/portfolio/{portfolioId}/project/{id}/
+        public Project Get(int portfolioId, int projectId)
+        {
+            return TheRepository.GetProject(projectId);
         }
 
         // POST: api/Projects

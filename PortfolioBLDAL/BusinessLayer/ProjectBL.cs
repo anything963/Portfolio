@@ -9,7 +9,7 @@ namespace PortfolioBLDAL.BusinessLayer
 {
     public class ProjectBL
     {
-        public static List<Project> PortfolioProjectsSelect(int portfolioId)
+        public static IEnumerable<Project> PortfolioProjectsSelect(int portfolioId)
         {
             List<Project> projects = new List<Project>();
             try
@@ -20,6 +20,7 @@ namespace PortfolioBLDAL.BusinessLayer
                 {
                     Project project = new Project();
                     project = MapDataReaderProject(data);
+                    project.projectType = ProjectTypeBL.ProjectTypeSelect(project.projectId);
                     projects.Add(project);
                 }
                 data.Close();
@@ -42,6 +43,8 @@ namespace PortfolioBLDAL.BusinessLayer
                 while (reader.Read())
                 {
                     objProject = MapDataReaderProject(reader);
+                    objProject.projectType = ProjectTypeBL.ProjectTypeSelect(objProject.projectId);
+
                 }
                 reader.Close();
             }

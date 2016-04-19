@@ -17,6 +17,6 @@ namespace PortfolioBLDAL.Models
         public string studentId { get; set; }
         public string public_status { get; set; }
 
-        public List<Project> projectList { get; set; }
+        public IEnumerable<Project> projectList { get; set; }
     }
 }

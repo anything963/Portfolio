@@ -13,7 +13,7 @@ namespace PortfolioBLDAL.BusinessLayer
     public class ProjectTypeBL
     {
 
-        public static List<ProjectType> ProjectTypeSelect(int projectId)
+        public static IEnumerable<ProjectType> ProjectTypeSelect(int projectId)
         {
             List<ProjectType> projectTypes = new List<ProjectType>();
             try

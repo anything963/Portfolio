@@ -14,6 +14,7 @@ namespace PortfolioWebApi.Models
 
         //Projects
         Project GetProject(int projectId);
+        IEnumerable<Project> GetProjects(int portfolioId);
         int CreateProject(Project project);
         bool EditProject(Project project);
         void RemoveProject(int projectId);

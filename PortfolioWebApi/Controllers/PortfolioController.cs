@@ -9,17 +9,16 @@ using PortfolioBLDAL.Models;
 
 namespace PortfolioWebApi.Controllers
 {
-    public class PortfolioController : ApiController
+    public class PortfolioController : BaseApiController
     {
-        private PortfolioRepository _repository;
-        public PortfolioController()
+        public PortfolioController(IPortfolioRepository repository): base(repository)
         {
-            _repository = new PortfolioRepository();
+            
         }
         // GET: api/Portfolio/5
         public Portfolio Get(string studentId, int portfolioId)
         {
-            return _repository.GetPortfolioWithProjects(studentId, portfolioId);
+            return TheRepository.GetPortfolioWithProjects(studentId, portfolioId);
         }
 
         // POST: api/Portfolio
