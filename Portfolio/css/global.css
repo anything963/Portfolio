@@ -186,6 +186,8 @@ height: 100%;
     height: 98%;
     width: 19.6%;
     margin: 0.2%;
+
+    background-color: #2D1A1A;
 }
 
     .project-item.ng-enter-stagger {
@@ -220,6 +222,24 @@ height: 100%;
     height: 75%;
 }
 
-/*.ng-scope {
-    height:100%;
-}*/
+.portfolio-title{
+    color: #480059;
+    font-weight: bold;
+    font-size: 52px;
+
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 40px 60px;
+}
+
+/**New Project**/
+.new-project-container{
+    width: 80%;
+}
+
+    .new-project-container select, input[type=date] {
+        width: 50%;
+    }

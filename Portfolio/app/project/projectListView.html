@@ -1,6 +1,6 @@
 ﻿<div class="content-wrapper">
     <ul class="project-list">
-        <li ng-repeat="project in vm.portfolio.projectList" class="project-item">
+        <li ng-repeat="project in vm.projects" class="project-item">
             <a ui-sref="projectDetail({projectId: project.projectId})"><p>{{project.title}}</p></a>
         </li>
 
