@@ -72,8 +72,8 @@ namespace PortfolioBLDAL.DataLayer
                 sqlCmd.Parameters.AddWithValue("@otherDetails", (object)project.otherDetails ?? DBNull.Value);
                 sqlCmd.Parameters.AddWithValue("@studentId", project.studentId);
                 sqlCmd.Parameters.AddWithValue("@sectionId", project.sectionId);
-                sqlCmd.Parameters.AddWithValue("@public_status", project.public_status ?? "VISIBLE");
-                sqlCmd.Parameters.AddWithValue("@active_status", project.active_status ?? "ACTIVE");
+                sqlCmd.Parameters.AddWithValue("@publicStatus", project.public_status ?? "VISIBLE");
+                sqlCmd.Parameters.AddWithValue("@activeStatus", project.active_status ?? "ACTIVE");
                 sqlCmd.Parameters.Add("@projectId", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                 if (this._DBConn.State == ConnectionState.Closed)          

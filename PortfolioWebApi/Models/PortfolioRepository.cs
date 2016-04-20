@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using PortfolioBLDAL.Models;
 using PortfolioBLDAL.BusinessLayer;
+using System.Configuration;
 
 namespace PortfolioWebApi.Models
 {
@@ -46,6 +47,23 @@ namespace PortfolioWebApi.Models
             return ProjectBL.ProjectInsert(project);
         }
 
-        
+        public bool SaveProjectTypes(Project objProject)
+        {
+            bool statusSave = false;
+            try
+            {
+                foreach (var type in objProject.projectType)
+                {
+                    ProjectTypeBL.ProjectTypeInsert(objProject.projectId, type.typeId);
+                }
+                statusSave = true;
+            }
+            catch (Exception ex)
+            {
+                if (ConfigurationManager.AppSettings["RethrowErrors"] == "true") { throw ex; }
+            }
+
+            return statusSave;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace PortfolioBLDAL.Models
         public string description { get; set; }
         public DateTime? startDate { get; set; }
         public DateTime? endDate { get; set; }
-        public DateTime dateAdded { get; set; }
+        public DateTime? dateAdded { get; set; }
         public DateTime dateUpdated { get; set; }
         public string otherDetails { get; set; }
         public string studentId { get; set; }

@@ -13,6 +13,7 @@ namespace PortfolioWebApi.App_Start
     using Models;
     using System.Web.Http;
     using WebApiContrib.IoC.Ninject;
+    using Services;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -68,7 +69,7 @@ namespace PortfolioWebApi.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IPortfolioRepository>().To<PortfolioRepository>();
-
+            kernel.Bind<IPortfolioIdentityService>().To<PortfolioIdentityService>();
         }        
     }
 }

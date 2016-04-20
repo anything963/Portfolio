@@ -19,5 +19,7 @@ namespace PortfolioWebApi.Models
         bool EditProject(Project project);
         void RemoveProject(int projectId);
 
+        bool SaveProjectTypes(Project objProject);
+
     }
 }

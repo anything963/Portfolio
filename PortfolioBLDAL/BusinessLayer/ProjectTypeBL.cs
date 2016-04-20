@@ -37,6 +37,12 @@ namespace PortfolioBLDAL.BusinessLayer
             return projectTypes;
         }
 
+        public static int ProjectTypeInsert(int projectId, int typeId)
+        {
+            ProjectTypeDAL dal = new ProjectTypeDAL();
+            return dal.ProjectTypeInsert(projectId, typeId);
+        }
+
         private static ProjectType MapDataReaderProjectType(SqlDataReader reader)
         {
             ProjectType type = new ProjectType();

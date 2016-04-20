@@ -43,5 +43,37 @@ namespace PortfolioWebApi.Models
                 description = projectType.description
             };
         }
+
+        public Project Parse(ProjectModel projectModel)
+        {
+            try
+            {
+                Project objProject = new Project();
+                objProject.projectId = projectModel.projectId;
+                objProject.title = projectModel.title;
+                objProject.description = projectModel.description;
+                objProject.startDate = projectModel.startDate;
+                objProject.endDate = projectModel.endDate;
+                objProject.dateAdded = projectModel.dateAdded;
+                objProject.dateUpdated = projectModel.dateUpdated;
+                objProject.otherDetails = projectModel.otherDetails;
+               
+                List<ProjectType> projectTypes = new List<ProjectType>();
+                List<ProjectTypeModel> types = projectModel.projectType.ToList();
+                foreach (var type in types)
+                {
+                    ProjectType projectType = new ProjectType();
+                    projectType.typeId = type.typeId;
+                    projectTypes.Add(projectType);
+                }
+                objProject.projectType = projectTypes;
+
+                return objProject;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }
