@@ -7,13 +7,14 @@ using System.Web.Http;
 using PortfolioWebApi.Models;
 using PortfolioBLDAL.Models;
 using PortfolioWebApi.Services;
+using System.Web.Http.Routing;
 
 namespace PortfolioWebApi.Controllers
 {
     public class ProjectsController : BaseApiController
     {
         private IPortfolioIdentityService _identityService;
-
+        const int PAGE_SIZE = 5;
         public ProjectsController(IPortfolioRepository repository, 
                                     IPortfolioIdentityService identityService) : base(repository)
         {
@@ -21,19 +22,26 @@ namespace PortfolioWebApi.Controllers
         }
 
         // GET: api/portfolio/{portfolioId}/project
-        public IEnumerable<ProjectModel> Get(int portfolioId)
+        public object Get(int portfolioId, bool paging = true, int page = 0)
         {
             var username = _identityService.CurrentUser;
-            var results = TheRepository.GetProjects(portfolioId)
-                                       .OrderBy(f => f.title)
-                                       .Take(5)
-                                       .Select(p => TheModelFactory.Create(p));
-                                       //{
-                                       //    projectId = p.projectId,
-                                       //    title = p.title
-                                       //});
-
-            return results;
+            var baseQuery = TheRepository.GetProjects(portfolioId).OrderBy(f => f.title);
+            var totalCount = baseQuery.Count();
+            var totalPages = Math.Ceiling((double)totalCount / PAGE_SIZE);
+            var results = baseQuery.Skip(PAGE_SIZE * page)
+                                   .Take(PAGE_SIZE)
+                                   .Select(p => TheModelFactory.Create(p));
+            var helper = new UrlHelper(Request);
+            var prevUrl = page > 0 ? helper.Link("Project",new { page = page - 1 }): "";
+            var nextUrl = page < totalPages - 1 ? helper.Link("Project", new { page = page + 1 }) : "";
+            return new
+            {
+                TotalCount = totalCount,
+                TotalPage = totalPages,
+                PrevPageUrl = prevUrl,
+                NextPageUrl = nextUrl,
+                Results = results
+            };
         }
 
         // GET: api/portfolio/{portfolioId}/project/{id}/
@@ -80,6 +88,9 @@ namespace PortfolioWebApi.Controllers
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Failed to set project types.");
                 }
+
+                return Request.CreateResponse(HttpStatusCode.Created, TheModelFactory.Create(objProject));
+
             }
             catch (Exception ex)
             {
@@ -87,7 +98,6 @@ namespace PortfolioWebApi.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         // PUT: api/Projects/5

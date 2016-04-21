@@ -11,8 +11,8 @@
     function ProjectListController(projectResource) {
         var vm = this;
 
-        projectResource.query(function (data) {
-            vm.projects = data;
+        projectResource.get(function (data) {
+            vm.projects = data.results;
             console.log(data);
         });
     }
