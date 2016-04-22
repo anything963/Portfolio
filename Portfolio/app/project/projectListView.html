@@ -2,6 +2,7 @@
     <ul class="project-list">
         <li ng-repeat="project in vm.projects" class="project-item">
             <a ui-sref="projectDetail({projectId: project.projectId})"><p>{{project.title}}</p></a>
+            <a ui-sref="projectEdit({projectId: project.projectId})"><p> Edit {{project.title}}</p></a>
         </li>
 
     </ul>

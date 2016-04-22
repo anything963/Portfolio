@@ -238,8 +238,45 @@ height: 100%;
 /**New Project**/
 .new-project-container{
     width: 80%;
+    margin: auto;
 }
 
     .new-project-container select, input[type=date] {
         width: 50%;
     }
+
+.wizard a {
+    background: #efefef;
+    display: inline-block;
+    margin-right: 5px;
+    min-width: 150px;
+    outline: none;
+    padding: 10px 40px 10px;
+    position: relative;
+    text-decoration: none;
+}
+
+.wizard .active {
+    background: #007aCC;
+    color: #fff;
+}
+
+form {
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.form-datepicker {
+    width: 200px;
+}
+
+.panel-title {
+    font-size: 2em;
+}
+
+.edit-panel-container {
+    width: 80%;
+    margin: auto;
+}

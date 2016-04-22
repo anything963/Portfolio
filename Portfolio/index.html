@@ -16,6 +16,12 @@
     <script src="scripts/angular-resource.min.js"></script>
     <script src="scripts/angular-animate.min.js"></script>
     <script src="scripts/angular-ui-router.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/angular-ui/ui-utils.min.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    
+
 
     <!--services-->
     <script src="common/services/common.services.js"></script>
@@ -24,7 +30,7 @@
     <!--application-->
     <script src="app/app.js"></script>
     <script src="app/project/projectListController.js"></script>
-    <script src="app/project/newProjectController.js"></script>
+    <script src="app/project/projectDetailController.js"></script>
     <script src="app/project/newProjectController.js"></script>
     <script src="app/project/projectEditController.js"></script>
 </head>
@@ -35,16 +41,16 @@
         <div class="sidebar-wrapper">
             <ul class="menu">
                 <li class="active"><a ui-sref="portfolio">Portfolio</a></li>
-                <li><a ui-sref="newProject">New Project</a></li>
+                <li><a ui-sref="newProject.basicInfo">New Project</a></li>
                 <li><a href="#"></a></li>
             </ul>
             <div class="logo">
-                <img src="images/logo-yellow.png" alt="logo"/>
+                <img src="images/logo-yellow.png" alt="logo" />
             </div>
         </div>
     </div>
 
-    <div id="wrapper" >
+    <div id="wrapper">
         <div class="main">
             <div class="header">
                 <div class="container-fluid">
@@ -80,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div ui-view class="view-inject"></div>
         </div>
         <!--<div id="footer">
