@@ -94,15 +94,50 @@ namespace PortfolioWebApi.Controllers
             }
             catch (Exception ex)
             {
-
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
 
         }
 
-        // PUT: api/Projects/5
-        public void Put(int id, [FromBody]string value)
+        // PUT: api/portfolio/{portfolioId}/project/projectId
+        [HttpPut]
+        [HttpPatch]
+        public HttpResponseMessage Patch(int portfolioId, int projectId, [FromBody]ProjectModel projectModel)
         {
+            try
+            {
+                var username = _identityService.CurrentUser;
+                var userId = _identityService.CurrentUserId;
+
+                var project = TheRepository.GetProject(projectId);
+                if (project.projectId == 0)
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+                var patchProject = TheModelFactory.Parse(projectModel);
+                if (patchProject == null || patchProject.projectId == 0 )
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Could not update.");
+                }
+
+                //TODO Fix student id problem
+                patchProject.studentId = _identityService.CurrentUserId;
+                patchProject.portfolioId = portfolioId;
+                if (TheRepository.EditProject(patchProject))
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // DELETE: api/Projects/5

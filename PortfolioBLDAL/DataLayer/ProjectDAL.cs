@@ -114,11 +114,10 @@ namespace PortfolioBLDAL.DataLayer
                 sqlCmd.Parameters.AddWithValue("@description", (object)project.description ?? DBNull.Value);
                 sqlCmd.Parameters.AddWithValue("@startDate", (object)project.startDate ?? DBNull.Value);
                 sqlCmd.Parameters.AddWithValue("@endDate", (object)project.endDate ?? DBNull.Value);
-                sqlCmd.Parameters.AddWithValue("@dateAdded", (object)project.dateAdded?? DateTime.Now);
                 sqlCmd.Parameters.AddWithValue("@dateUpdated", (object)project.dateUpdated ?? DateTime.Now);
                 sqlCmd.Parameters.AddWithValue("@otherDetails", (object)project.otherDetails ?? DBNull.Value);
                 sqlCmd.Parameters.AddWithValue("@studentId", project.studentId);
-                sqlCmd.Parameters.AddWithValue("@sectionId", project.sectionId);
+                sqlCmd.Parameters.AddWithValue("@sectionId", (object)project.sectionId?? DBNull.Value);
                 sqlCmd.Parameters.AddWithValue("@public_status", project.public_status ?? "VISIBLE");
                 sqlCmd.Parameters.AddWithValue("@active_status", project.active_status ?? "ACTIVE");
                 if (this._DBConn.State == ConnectionState.Closed)
