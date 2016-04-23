@@ -157,9 +157,10 @@ height: 100%;
 
 .content-wrapper {
     width: 100%;
-    background-color: antiquewhite;
+    background-color: #FFF8F0;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 2%;
 }
 
@@ -169,6 +170,7 @@ height: 100%;
     height: 100%;
     width: 100%;
     padding: 0;
+    margin: 0;
 }
 /*****Animate*****/
 /*
@@ -181,11 +183,11 @@ height: 100%;
     position:relative;
     float: left;
     display: inline-block;
-    padding: 5px;
+    padding: 0;
     border: 1px solid;
     height: 98%;
-    width: 19.6%;
-    margin: 0.2%;
+    width: 19.8%;
+    margin: 0.1%;
 
     background-color: #2D1A1A;
 }
@@ -199,7 +201,7 @@ height: 100%;
 .project-item.ng-enter, .project-item.ng-move {
   -webkit-transition:0.7s ease-out all;
   -moz-transition:0.7s ease-out all;
-  -o-transition:0.5s linear all;
+  -o-transition:0.5s ease-out all;
   transition:0.7s ease-out all;
   left:100%;
 }
@@ -217,9 +219,48 @@ height: 100%;
 
 /************/
 
+.project-image-section {
+    background: url(/images/projects/Portfolio.jpg) no-repeat center center;     background-size: cover;    width: 100%;    height:100%;}
+
+.project-description-section {
+    height: 60%;
+    width: 100%;
+    background-color: #b6a23a;
+    opacity: 0.9;
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+}
+
+.project-description {
+    position: relative;
+    display: block;
+    padding: 4px;
+    /*margin-bottom: 20px;*/
+    line-height: 1.42857143;
+    /* background-color: #fff; */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    -moz-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    height: 100%;
+
+}
+.project-title {
+    padding: 9px;
+    color: white;
+}
+
+.project-buttons {
+    position: absolute;
+    bottom: 15px;
+}
 
 .view-inject {
     height: 75%;
+    overflow-y: auto;
 }
 
 .portfolio-title{

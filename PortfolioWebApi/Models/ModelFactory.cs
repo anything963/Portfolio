@@ -57,16 +57,25 @@ namespace PortfolioWebApi.Models
                 objProject.dateAdded = projectModel.dateAdded;
                 objProject.dateUpdated = projectModel.dateUpdated;
                 objProject.otherDetails = projectModel.otherDetails;
-               
-                List<ProjectType> projectTypes = new List<ProjectType>();
-                List<ProjectTypeModel> types = projectModel.projectType.ToList();
-                foreach (var type in types)
+
+                if (projectModel.projectType != null)
                 {
-                    ProjectType projectType = new ProjectType();
-                    projectType.typeId = type.typeId;
-                    projectTypes.Add(projectType);
+                    List<ProjectType> projectTypes = new List<ProjectType>();
+                    List<ProjectTypeModel> types = projectModel.projectType.ToList();
+                    foreach (var type in types)
+                    {
+                        ProjectType projectType = new ProjectType();
+                        projectType.typeId = type.typeId;
+                        projectTypes.Add(projectType);
+                    }
+                    objProject.projectType = projectTypes;
                 }
-                objProject.projectType = projectTypes;
+                else
+                {
+                    objProject.projectType = new List<ProjectType>();
+                }
+                
+               
 
                 return objProject;
             }

@@ -3,9 +3,9 @@
     "use strict";
     angular.module("portfolio")
             .controller("projectEditController",
-                        ["project", projectEditController]);
+                        ["project", "$state",  projectEditController]);
 
-    function projectEditController(project) {
+    function projectEditController(project, $state) {
         var vm = this;
         vm.project = project;
         console.log(project);
@@ -29,6 +29,16 @@
         };
         vm.endDate = {
             opened: false
+        };
+
+        vm.cancel = function () {
+            $state.go('home');
+        };
+
+        vm.submit = function () {
+            vm.project.$update({ projectId: vm.project.projectId }, vm.project);
+            toastr.success("Project updated.");
+            $state.go('home');
         };
     }
 

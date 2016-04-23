@@ -33,8 +33,8 @@
                         controller: "newProjectController as vm"
                     })
                     .state("newProject.basicInfo", {
-                        url: "/basicinfo",
-                        templateUrl: "app/project/newProjectBasicInfoView.html",
+                            url: "/basicinfo",
+                            templateUrl: "app/project/newProjectBasicInfoView.html",
                     })
                     .state("newProject.uploads", {
                         url: "/uploads",
