@@ -1,4 +1,5 @@
 ﻿<div class="content-wrapper">
+    
     <ul class="project-list">
         <li ng-repeat="project in vm.projects" class="project-item">
             <div class="project-image-section">
@@ -19,4 +20,16 @@
             </div>
         </li>
     </ul>
+    <div class="project-next-previous">
+        <button id="" type="button" class="btn btn-default" aria-label="Previous"
+                ng-click="vm.previousProjects($event)"
+                ng-disabled="vm.disableBtnPrevious || !vm.previousPage">
+            <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+        </button>
+        <button id="" type="button" class="btn btn-default" aria-label="Next"
+                ng-click="vm.nextProjects($event)"
+                ng-disabled="vm.disableBtnNext || !vm.nextPage">
+            <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+        </button>
+    </div>
 </div>

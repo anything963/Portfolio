@@ -17,13 +17,17 @@
                         Other Details
                     </a>
                 </div>
-                <div ui-view></div>
-            </div>
+                <form class="form-horizontal" name="newProjectBasicInformation" novalidate>
+                    <div ui-view></div>
+                </form>
+
+</div>
         </div>
         <div class="form-group">
             <div class="">
                 <button type="submit" class="btn btn-primary"
-                        ng-click="vm.submit()">
+                        ng-click="vm.submit()"
+                        ng-disabled="newProjectBasicInformation.$invalid">
                     Save
                 </button>
                 <button class="btn btn-default"

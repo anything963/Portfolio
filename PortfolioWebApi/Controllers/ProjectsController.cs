@@ -38,7 +38,7 @@ namespace PortfolioWebApi.Controllers
             {
                 TotalCount = totalCount,
                 TotalPage = totalPages,
-                PrevPageUrl = prevUrl,
+                PreviousPageUrl = prevUrl,
                 NextPageUrl = nextUrl,
                 Results = results
             };
