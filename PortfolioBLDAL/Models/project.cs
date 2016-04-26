@@ -24,9 +24,9 @@ namespace PortfolioBLDAL.Models
         public string sectionId { get; set; }
         public string public_status { get; set; }
         public string active_status { get; set; }
-
         public IEnumerable<ProjectType> projectType { get; set; }
-
+        public IEnumerable<Image> images { get; set; }
+        public IEnumerable<Video> videos { get; set; }
         public Portfolio portfolio { get; set; }
 
         

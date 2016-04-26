@@ -61,6 +61,7 @@ namespace PortfolioWebApi.Controllers
         // POST: api/portfolio/{portfolioId}/project
         public HttpResponseMessage Post(int portfolioId, [FromBody]ProjectModel projectModel)
         {
+            // Project title should not be null
             if (projectModel.title == null || projectModel.title.Trim() == "")
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Project title should not be empty.");

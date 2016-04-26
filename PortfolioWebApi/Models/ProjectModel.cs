@@ -24,6 +24,7 @@ namespace PortfolioWebApi.Models
         public string otherDetails { get; set; }
 
         public IEnumerable<ProjectTypeModel> projectType { get; set; }
+        public IEnumerable<ImageModel> images { get; set; }
 
     }
 }

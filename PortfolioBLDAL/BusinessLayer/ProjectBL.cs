@@ -21,6 +21,8 @@ namespace PortfolioBLDAL.BusinessLayer
                     Project project = new Project();
                     project = MapDataReaderProject(data);
                     project.projectType = ProjectTypeBL.ProjectTypeSelect(project.projectId);
+                    project.images = ImageBL.ProjectImagesSelect(project.projectId);
+                    project.videos = VideoBL.ProjectVideosSelect(project.projectId);
                     projects.Add(project);
                 }
                 data.Close();
@@ -44,6 +46,8 @@ namespace PortfolioBLDAL.BusinessLayer
                 {
                     objProject = MapDataReaderProject(reader);
                     objProject.projectType = ProjectTypeBL.ProjectTypeSelect(objProject.projectId);
+                    objProject.images = ImageBL.ProjectImagesSelect(objProject.projectId);
+                    objProject.videos = VideoBL.ProjectVideosSelect(objProject.projectId);
 
                 }
                 reader.Close();

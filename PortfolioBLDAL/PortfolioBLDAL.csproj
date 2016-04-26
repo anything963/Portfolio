@@ -41,18 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\ImageBL.cs" />
+    <Compile Include="BusinessLayer\ImageTypeBL.cs" />
     <Compile Include="BusinessLayer\PortfolioBL.cs" />
     <Compile Include="BusinessLayer\ProjectBL.cs" />
     <Compile Include="BusinessLayer\ProjectTypeBL.cs" />
+    <Compile Include="BusinessLayer\VideoBL.cs" />
+    <Compile Include="BusinessLayer\VideoTypeBL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DataLayer\DBHelper.cs" />
+    <Compile Include="DataLayer\ImageDAL.cs" />
+    <Compile Include="DataLayer\ImageTypeDAL.cs" />
     <Compile Include="DataLayer\PortfolioDAL.cs" />
     <Compile Include="DataLayer\Portfolio_ProjectsDAL.cs" />
     <Compile Include="DataLayer\ProjectDAL.cs" />
     <Compile Include="DataLayer\ProjectTypeDAL.cs" />
+    <Compile Include="DataLayer\VideoDAL.cs" />
+    <Compile Include="DataLayer\VideoTypeDAL.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\ImageType.cs" />
     <Compile Include="Models\Portfolio.cs" />
     <Compile Include="Models\project.cs" />
     <Compile Include="Models\ProjectType.cs" />
+    <Compile Include="Models\Video.cs" />
+    <Compile Include="Models\VideoType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -89,6 +89,7 @@
     <Content Include="css\global.css" />
     <Content Include="css\index.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\projects\example.jpg" />
     <Content Include="images\logo-yellow.png" />
     <Content Include="images\projects\Portfolio.jpg" />
     <Content Include="index.html" />
