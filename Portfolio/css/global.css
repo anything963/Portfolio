@@ -157,7 +157,7 @@ height: 100%;
 
 .content-wrapper {
     width: 100%;
-    background-color: #FFF8F0;
+    /*background-color: #FFF8F0;*/
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
@@ -325,4 +325,12 @@ form {
 .edit-panel-container {
     width: 80%;
     margin: auto;
+}
+.panel-primary {
+    border-color: #480059;
+}
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #480059;
+    border-color: #480059;
 }
