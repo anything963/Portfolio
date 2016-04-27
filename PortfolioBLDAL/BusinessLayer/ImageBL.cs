@@ -26,6 +26,7 @@ namespace PortfolioBLDAL.BusinessLayer
                     image.imageType = ImageTypeBL.ImageTypeSelect(image.imageTypeId);
                     images.Add(image);
                 }
+                data.Close();
             }
             catch (Exception ex)
             {

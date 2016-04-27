@@ -3,6 +3,8 @@
     <ul class="project-list">
         <li ng-repeat="project in vm.projects" class="project-item">
             <div class="project-image-section">
+                <img ng-src="{{project.images[0].path}}" 
+                     ng-show="project.images[0]"alt="" />
                 <div class="project-description-section">
                     <div class="project-description">
                         <div class="project-title">

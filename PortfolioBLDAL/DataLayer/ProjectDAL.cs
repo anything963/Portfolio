@@ -36,6 +36,7 @@ namespace PortfolioBLDAL.DataLayer
                     this._DBConn.Open();
                 }
                 data = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                
             }
             catch (Exception ex)
             {

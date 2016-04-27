@@ -1,3 +1,68 @@
 ﻿<div class="content-wrapper">
-    <h1>Detail</h1>
+    
+        <div class="edit-panel-container">
+            <div class="panel panel-primary">
+                <div class="panel-heading panel-title">
+                    Basic Information
+                </div>
+                <div class="panel-body">
+                    <div class="container">
+                        <div class="row">
+                            <dl class="dl-horizontal">
+                                <dt>Title</dt>
+                                <dd>{{vm.project.title}}</dd>
+                                <dt>Description</dt>
+                                <dd>{{vm.project.description}}</dd>
+                                <dt>Start Date</dt>
+                                <dd>{{vm.project.startDate | date : 'MMM'-'DD'-'YYYY'}}</dd>
+                                <dt>End Date</dt>
+                                <dd>{{vm.project.endDate | date : 'MMM'-'DD'-'YYYY'}}</dd>
+                                <dt>Project Type</dt>
+                                <dd ng-repeat="type in vm.project.projectType">{{type.title}}</dd>
+                                
+
+                            </dl>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading panel-title">
+                    Gallery
+                </div>
+                <div class="panel-body">
+                    <div class="container gallery-container">
+                        <!-- slider container -->
+                        <div class="container slider">
+                            <!-- enumerate all photos -->
+                            <img ng-repeat="photo in vm.photos" ng-src="{{photo.path}}" class="slide absolute-center" ng-swipe-right="vm.showPrev()" ng-swipe-left="vm.showNext()" ng-show="vm.isActive($index)" />
+                            <!-- prev / next controls -->
+                            <a class="arrow prev" ng-click="vm.showPrev()"></a>
+                            <a class="arrow next" ng-click="vm.showNext()"></a>
+                            <!-- extra navigation controls -->
+                            <ul class="nav">
+                                <li ng-repeat="photo in vm.photos" ng-class="{'active':vm.isActive($index)}">
+                                    <img ng-src="{{photo.path}}" alt="{{photo.description}}" title="{{photo.title}}" ng-click="vm.showPhoto($index);" />
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading panel-title">
+                        Other Details
+                    </div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>Other Details</dt>
+                            <dd>{{vm.project.otherDetails}}</dd>
+                        </dl>
+                    </div>
+
+                </div>
+            </div>
 </div>
+

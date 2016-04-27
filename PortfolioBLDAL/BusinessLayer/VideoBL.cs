@@ -26,6 +26,7 @@ namespace PortfolioBLDAL.BusinessLayer
                     video.videoType = VideoTypeBL.VideoTypeSelect(video.videoTypeId);
                     videos.Add(video);
                 }
+                data.Close();
             }
             catch (Exception ex)
             {
